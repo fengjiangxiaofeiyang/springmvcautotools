@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+ 	<!--顾客表(cuser):  -->
+	<table name="cuser" rebuildvo="1" newtable="1" rebuilddao="1">
+		<field name="userid" type="int" allownull="0" primarykey="1" autoIncrement="1"  list="1" />
+		<field name="name" type="String" allownull="0" cname="用户名" query="1" mod="1" list="1" />
+		<field name="realname" type="String" allownull="0" cname="真实姓名" query="1" mod="1" list="1" />
+		<field name="password" type="String" allownull="0" cname="密码" query="0" mod="0" list="1" />
+		<field name="cellphone" type="String" allownull="0" cname="手机号码" query="1" mod="1" list="1" />
+		<field name="email" type="String" allownull="0" cname="邮箱" query="1" mod="1" list="1" />
+		<field name="address" type="String" allownull="0" cname="住址" query="1" mod="1" list="1" />
+		<field name="city" type="String" allownull="0" cname="市" query="1" mod="1" list="1" />
+		<field name="provice" type="String" allownull="0" cname="省" query="1" mod="1" list="1" />
+		<field name="state" type="int" allownull="0" cname="状态" fieldtype="1" query="1" mod="1"
+			list="1">
+			<item value="0" name="DISABLE" cname="不可用" />
+			<item value="1" name="ENABLE" cname="可用" />
+		</field>
+		
+		<!-- 测试用 -->
+		<field name="shop" type="int" allownull="0" cname="门店"  newfield="1"  defaultvalue="0" fieldtype="2" query="1" mod="1"
+			list="1"/>
+			
+		<field name="jsessionid" type="String" allownull="0" cname="sessionid" query="0" mod="0" />
+	</table>
+	
+	
+	<!--公司表(company):  -->
+	<table name="company" rebuildvo="1" rebuilddao="1">
+		<field name="cid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="name" type="String" allownull="0" cname="用户名" query="1" mod="1" list="1"  /> 
+		<field name="realname" type="String" allownull="0" cname="真实姓名" query="1" mod="1" list="1" />
+		<field name="password" type="String" allownull="0" cname="密码" query="1" mod="1" list="1" />
+		<field name="contacts" type="String" allownull="0" cname="联系人" query="1" mod="1" list="1" />
+		<field name="cellphone" type="String" allownull="0" cname="手机号码" query="1" mod="1" list="1" />
+		<field name="email" type="String" allownull="0" cname="邮箱" query="1" mod="1" list="1" />
+		<field name="address" type="String" allownull="0" cname="地点" query="1" mod="1" list="1" />
+		<field name="city" type="String" allownull="0" cname="市" query="1" mod="1" list="1" />
+		<field name="provice" type="String" allownull="0" cname="省份 " query="1" mod="1" list="1" />
+		<field name="state" type="int" allownull="0" cname="账户状态" fieldtype="1" query="1" mod="1" list="1" >
+			<item value="0" name="DISABLE" cname="激活" />
+			<item value="1" name="ENABLE" cname="冻结" />
+		</field>
+		<field name="viplevel" type="int" allownull="0" cname="VIP等级" query="1" mod="1" list="1"/>
+		<field name="expire" type="Date" allownull="0" cname="e过期时间" query="1" mod="1" list="1"/>
+		<field name="balance" type="double" allownull="0" cname="现金余额" query="1" mod="1" list="1"/>
+	</table>
+		
+	<!--门店表(shop):  -->
+	<table name="shop" rebuildvo="1" rebuilddao="1" enumitem="1">
+		<field name="shopid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cname" type="String" allownull="0" cname="门店中文名称" query="1" mod="1" list="1" />
+		<field name="contact" type="String" allownull="0" cname="门店联系人" query="1" mod="1" list="1"/>
+		<field name="introduction" type="String" allownull="0" cname="门店介绍" query="1" mod="1" list="1"/>
+		<field name="district" type="String" allownull="0" cname="门店所属区域" query="1" mod="1" list="1"/>
+		<field name="address" type="String" allownull="0" cname="门店地点" query="1" mod="1" list="1"/>
+		<field name="telnum" type="String" allownull="0" cname="联系人电话" query="1" mod="1" list="1"/>
+		<field name="shopcode" type="String" allownull="0" cname="门店编号" query="1" mod="1" list="1" /><!--门店编号，6位-->
+		<field name="icon" type="String" allownull="0" cname="图片" query="1" mod="1" list="1"/>
+		<field name="atid" type="int" allownull="0"  cname="文章ID"  query="1" mod="1" list="1" />
+		<field name="cid" type="int" allownull="0" cname="公司id" query="1" mod="1" list="1"/>
+	</table>
+ 
+	<!-- 消费者在公司的账户表(cuseraccount):  -->
+	<table name="cuseraccount" rebuildvo="1" rebuilddao="1">
+		<field name="cuid" type="int" allownull="0" primarykey="1" autoIncrement="1" /><!--关联ID-->
+		<field name="cid" type="int" allownull="0" cname="公司id" query="1" mod="1" list="1"/>
+		<field name="userid" type="int" allownull="0" cname="用户"  query="1" mod="1" list="1" />
+		
+		<field name="name" type="String" allownull="0" cname="用户名" query="1" mod="1" list="1" />
+		<field name="realname" type="String" allownull="0" cname="真实姓名" query="1" mod="1" list="1" />
+		<field name="cellphone" type="String" allownull="0" cname="手机号码" query="1" mod="1" list="1" />
+		<field name="email" type="String" allownull="0" cname="邮箱" query="1" mod="1" list="1" />
+		<field name="address" type="String" allownull="0" cname="住址" query="1" mod="1" list="1" />
+ 
+		
+		<field name="state" type="int" allownull="0" cname="状态" fieldtype="1" query="1" mod="1" list="1">
+			<item value="0" name="DISABLE" cname="可用" />
+			<item value="1" name="ENABLE" cname="冻结" />
+		</field>
+		<field name="viplevel" type="int" allownull="0" cname="VIP等级"  query="1" mod="1" list="1" />
+		<field name="balance" type="double" allownull="0" cname="现金余额"  query="1" mod="1" list="1"/>
+		<field name="credit" type="double" allownull="0" cname="积分"  query="1" mod="1" list="1"/> 
+		<field name="groupid" type="String" allownull="0" cname="groupid" query="0" mod="0" /> 
+	</table>
+	
+	<!-- 公司用户表(companyuser):  -->
+	<table name="companyuser" rebuildvo="1" rebuilddao="1">
+		<field name="syid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="name" type="String" allownull="0" cname="用户名"  query="1" mod="1" list="1"/><!--  -->
+		<field name="cid" type="int" allownull="0" cname="公司"  query="1" mod="1" list="1"/>
+		<field name="password" type="String" allownull="0" cname="密码"  query="1" mod="1" list="1"/><!-- 密码
+-->
+        <!-- 角色类型  1：管理员     2：操作员 -->
+		<field name="type" type="int" allownull="0" cname="密码"  query="1" mod="1" list="1" />
+        
+		<field name="shopid" type="int" allownull="0" cname="店面"  query="1" mod="1" list="1"/><!-- 店面
+-->
+		<field name="managerid" type="int" allownull="0" cname="管理者"  query="1" mod="1" list="1"/>
+		<field name="telnum" type="String" allownull="0" cname="手机号"  query="1" mod="1" list="1"/>
+	</table>
+	 		
+	<!--奖券表(coupon)-->
+	<table name="coupon" rebuildvo="1" rebuilddao="1">
+		<field name="cpid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cid" type="int" allownull="0" cname="公司名称" query="1" mod="1" list="1"/>
+		<field name="name" type="String" allownull="0" cname="名称" query="1" mod="1" list="1"/><!-- 名称-->
+		<field name="code" type="String" allownull="0" cname="奖券号" query="1" mod="1" list="1"/><!--奖券号-->
+		<field name="intro" type="String" allownull="0" cname="奖券介绍" query="1" mod="1" list="1"/><!--奖券内容-->
+		<field name="type" type="int" allownull="0" cname="奖券类别" fieldtype="1" query="1" mod="1" list="1" >
+			<item value="0" name="CASH" cname="余额券" />
+			<item value="1" name="GIFT" cname="礼品" />
+			<item value="2" name="CREDIT" cname="积分券" />
+		</field>
+		<field name="total" type="int" allownull="0" cname="总数" query="1" mod="1" list="1" />
+		<field name="usable" type="int" allownull="0"  cname="状态" query="1" mod="1" list="1">
+			<item value="0" name="ENABLE" cname="可用" />
+			<item value="1" name="OUTDATE" cname="过期" />
+			<item value="2" name="USED" cname="已用" />
+		</field>
+		<field name="expire" type="Date" allownull="0" cname="过期" query="1" mod="1" list="1"/>
+		<field name="gid" type="int" allownull="0"  cname="商品" query="1" mod="1" list="1"/>
+		<!--			可兑换商品的ID,如果是现金券怎无此ID		-->
+		<field name="credit" type="double" allownull="0" cname="积分" query="1" mod="1" list="1"/>
+		<!--			可兑换积分的额度		-->
+		<field name="balanece" type="double" allownull="0" cname="余额" query="1" mod="1" list="1"/>
+		<!--			可兑换余额的额度		-->
+		<field name="icon" type="String" allownull="0" cname="优惠券图片" query="1" mod="1" list="1"/>
+		<field name="atid" type="int" allownull="0"  cname="文章ID"  query="1" mod="1" list="1" />
+	</table>
+	
+	<!--奖券表(usercoupon)-->
+	<table name="usercoupon" rebuildvo="1" rebuilddao="1">
+		<field name="ucid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+		<field name="cpid" type="int" allownull="0"  cname="奖券ID" query="1" mod="1" list="1" />
+		<field name="userid" type="int" allownull="0" cname="所有人" query="1" mod="1" list="1"/>
+		<field name="couponname" type="String" allownull="0" cname="名称" query="1" mod="1" list="1"/>
+		<!--			奖券拥有者,为用户ID		-->
+		<field name="state" type="int" allownull="0" cname="状态" query="1" mod="1" list="1">
+			<item value="0" name="UNUSE" showname="未使用" />
+			<item value="1" name="USED" showname="已经使用" />
+			<item value="2" name="INVALIDE" showname="作废" />
+		</field>
+		<field name="orderid" type="int" allownull="0" cname="订单" query="1" mod="1" list="1"/>
+		<!--			订单ID,如果是礼品券，则会生成已付款订单，则有此值		-->
+	</table>
+	
+	<!--================网站===================-->
+	<!--(cwapsite)-->
+	<table name="cwapsite" rebuildvo="1" rebuilddao="1" cname="网站">
+		<field name="wpid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+	</table>
+		
+	<!--(cchannel)-->
+	<table name="cchannel" rebuildvo="1" rebuilddao="1" cname="频道">
+		<field name="caid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="wpid" type="int" allownull="0"  cname="网站ID" query="1" mod="1" list="1"/>
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+		<field name="name" type="String" allownull="0" cname="频道名" query="1" mod="1" list="1"/>
+		<field name="fcaid" type="int" allownull="0" cname="父频道名" query="1" mod="1" list="1"/>	
+		<field name="showorder" type="int" allownull="0" cname="显示顺序" query="1" mod="1" list="1"/>
+		<field name="imgurl" type="String"  allownull="0" cname="图片路径" query="1" mod="1" list="0"/>
+	</table>
+	
+	
+	<!-- 频道文章关联表 -->
+	<table name="chanart" rebuildvo="1" rebuilddao="1" cname="频道文章关联表">
+		<field name="cnid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="caid" type="int" allownull="0"  cname="频道ID"  query="1" mod="1" list="1"/>
+		<field name="atid" type="int" allownull="0"  cname="文章ID"  query="1" mod="1" list="1" />
+		<field name="showorder" type="int" allownull="0" cname="显示顺序" query="1" mod="1" list="1"/>
+	</table> 
+	
+	
+	<!--(carticle)-->
+	<table name="carticle" rebuildvo="1" rebuilddao="1" cname="文章">
+		<field name="atid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="description" type="String" allownull="0" cname="标题" query="1" mod="1" list="1"/>
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+		<field name="showorder" type="int" allownull="0" cname="显示顺序" query="1" mod="1" list="1"/>
+		<field name="addtime" type="Date" allownull="0" cname="上线时间" query="1" mod="1" list="1"/>
+		<field name="createtime" type="String" allownull="0" cname="创建时间" query="1" mod="1" list="1"/>		
+		<field name="state" type="int" allownull="0" cname="状态" query="1" mod="1" list="1">
+			<item value="0" name="SAVE" showname="存档" />
+			<item value="1" name="INUSE" showname="上线中" />
+			<item value="2" name="UNUSE" showname="冻结" />					
+		</field>
+		<field name="content" type="String" length="5000" allownull="0" cname="内容" query="1" mod="1" list="0"/>
+		<field name="titimg" type="String"  allownull="0" cname="标题图片" query="1" mod="1" list="0"/>
+		<field name="mainimg" type="String"  allownull="0" cname="内容主图片" query="1" mod="1" list="0"/>
+		<field name="type"    type="int" allownull="0" cname="分类" query="1" mod="1" list="1"/><!-- 是商品类型(1)还是优惠券类型(2)等等 -->
+	</table>
+	
+	
+	<!-- 图片库表  image library table -->
+	<table name="imglib" rebuildvo="1" rebuilddao="1" cname="图片库">
+		<field name="ilid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="imageurl" type="String"  allownull="0" cname="图片路径"    query="1" mod="1" list="0"/>
+		<field name="imagedes" type="String"  allownull="0" cname="图片描述"    query="1" mod="1" list="0"/>
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+	</table>
+	
+	
+	<!--(cpic)-->
+	<table name="cpic" rebuildvo="1" rebuilddao="1" cname="客户图片">
+		<field name="cpid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+	</table>
+		
+	<!--(cresponse)-->
+	<table name="cresponse" rebuildvo="1" rebuilddao="1" cname="关键词反应">
+		<field name="crpid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+	</table>
+	
+	
+	<!-- 商品表 -->
+	<table name="goods" rebuildvo="1" rebuilddao="1" cname="商品">
+		<field name="gid" type="int" allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="gname"   type="String"  allownull="0" cname="商品名称"    query="1" mod="1" list="0"/>
+		<field name="price"   type="String"  allownull="0" cname="价格"    query="1" mod="1" list="0"/>
+		<field name="type"    type="int" allownull="0" cname="分类" query="1" mod="1" list="1"/>
+		<field name="gimage"  type="String" allownull="0" cname="商品图片" query="1" mod="1" list="1"/>
+		<field name="gcredit" type="double" allownull="0" cname="积分" query="1" mod="1" list="1"/>
+		<field name="ecredit" type="double" allownull="0" cname="兑换积分" query="1" mod="1" list="1"/>
+        <field name="content" type="String" length="5000" allownull="0" cname="商品内容" query="1" mod="1" list="0"/>
+        <field name="cid" type="int" allownull="0" cname="公司ID" query="1" mod="1" list="1"/>
+        <field name="atid" type="int" allownull="0"  cname="文章ID"  query="1" mod="1" list="1" />
+	</table>
+	
+	<!-- 消费者在公司的积分表(cusercredit):  -->
+	<table name="cusercredit" rebuildvo="1" rebuilddao="1">
+		<field name="cuid" type="int" allownull="0" primarykey="1" autoIncrement="1" /><!--关联ID-->
+		<field name="cid" type="int" allownull="0" cname="公司id" query="1" mod="1" list="1"/>
+		<field name="userid" type="int" allownull="0" cname="用户"  query="1" mod="1" list="1" />
+		<field name="type" type="int" allownull="0" cname="类型" fieldtype="1" query="1" mod="1" list="1">
+			<item value="0" name="DISABLE" cname="减少" />
+			<item value="1" name="ENABLE" cname="增加" />
+		</field>		
+		<field name="credit" type="double" allownull="0" cname="积分"  query="1" mod="1" list="1"/>
+		<field name="rescredit" type="double" allownull="0" cname="积分"  query="1" mod="1" list="1"/>  
+		<field name="companyuser" type="int" allownull="0" cname="操作的企业用户"  query="1" mod="1" list="1"/>
+		<!--积分可以兑换为优惠券与商品，在减少记录中才使用-->
+		<field name="target" type="int" allownull="0" cname="目标" fieldtype="1" query="1" mod="1" list="1">
+			<item value="0" name="DISABLE" cname="优惠券" />
+			<item value="1" name="ENABLE" cname="商品" />
+		</field>
+		 <field name="targetid" type="int" allownull="0" cname="目标ID" fieldtype="1" query="1" mod="1" list="1"/>
+	</table>
+ 
+	
+	<!--(chatcontent) 回复内容表-->
+	<table name="chatcontent" rebuildvo="1" rebuilddao="1" cname="回复内容">
+		<field name="ccid" type="int"   allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="userid" type="int" allownull="0" cname="用户ID" query="1" mod="1" list="1"/>
+		<field name="reuserid" type="int" allownull="0" cname="回复ID" query="1" mod="1" list="1"/>
+		<field name="atid" type="int"   allownull="0" cname="文章ID" query="1" mod="1" list="1"/>
+		<field name="content" type="String"  allownull="0" cname="回复内容" query="1" mod="1" list="0"/>
+		<field name="replytime" type="Date" allownull="0" cname="回复时间" query="1" mod="1" list="1"/>
+	</table>
+	
+	
+	<!--(replyrecord) 支持记录表-->
+	<table name="replyrecord" rebuildvo="1" rebuilddao="1" cname="支持记录">
+		<field name="rrid" type="int"   allownull="0" primarykey="1" autoIncrement="1" />
+		<field name="atid" type="int"   allownull="0" cname="文章ID" query="1" mod="1" list="1"/>
+		<field name="userid" type="int" allownull="0" cname="用户ID" query="1" mod="1" list="1"/>
+		<field name="supoppenum" type="int" allownull="0" cname="支持OR反对" query="1" mod="1" list="1">
+			<item value="1" name="SUPPORT" showname="支持" />
+			<item value="2" name="OPPOSE" showname="反对" />					
+		</field>
+	</table>
+	
+	
+</data>
